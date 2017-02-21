@@ -1,54 +1,55 @@
-<div class="container">
-   <div class="account-form-wrapper">
-      <div class="account_form row" ng-controller="SignUpController">
-         <alert type="danger" ng-show="error" class="text-center text-danger">
-            <div uib-alert   class="alert alert-danger">
-               <span ng-bind="error">{{alert}}</span>
-            </div>
-         </alert>
-         <div class="form-container col-sm-6  col-sm-offset-3">
-            <div class="alignCenter brand"><img src="../modules/core/client/img/logo/brand.png"/></div>
-            <div class="text-center reg-title">Change the account details.</div>
-            <form name="accountForm" ng-submit="account(accountForm.$valid)" novalidate>
-               <div class="form-group">
-                  <input required type="email" name="email" ng-model="user.email"
-                     minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" class="form-control" placeholder="Username" />
-                  <div class="text-danger" ng-show="!accountForm.email.$pristine || accountForm.$submitted" ng-messages="accountForm.email.$error " role="alert">
-                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                        Username not look like an e-mail address.
-                     </div>
-                  </div>
-               </div>
-                <div class="form-group">
-                  <input required type="password" name="oldpassword" ng-model="user.oldPassword"
-                     minlength="8" maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" class="form-control" placeholder="Old Password"/>
-                  <div class="text-danger" ng-show="!accountForm.password.$pristine || accountForm.$submitted" ng-messages="accountForm.password.$error" role="alert">
-                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                        Enter the password minimum 8 alpha-numeric characters; Max 20 characters.
-                     </div>
-                  </div>
-               </div>
-               <div class="form-group">
-                  <input required type="password" name="newpassword" ng-model="user.newPassword"
-                     minlength="8" maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" class="form-control" placeholder="Password"/>
-                  <div class="text-danger" ng-show="!accountForm.password.$pristine || accountForm.$submitted" ng-messages="accountForm.password.$error" role="alert">
-                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                        Enter the password minimum 8 alpha-numeric characters; Max 20 characters.
-                     </div>
-                  </div>
-               </div>
-               <div class="form-group">
-                  <input required type="password" name="confirmnewpassword" ng-model="user.confirmNewPassword"
-                     minlength="8" maxlength="20" class="form-control" placeholder="Confirm New Password" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" valid-password-c />
-                  <div class="text-danger" ng-show="!accountForm.confirmPassword.$pristine || accountForm.$submitted" ng-messages="accountForm.confirmPassword.$error || accountForm.confirmPassword.$error.passwordVerify" role="alert">
-                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                        Passwords do not match.
-                     </div>
-                  </div>
-               </div>
-               <button class="btn btn-success btn-block btn-lg mb15" type="submit"> <span>Register</span> </button>
-            </form>
+
+<div class="account-container clearfix">
+   <div ng-controller="SignUpController">
+      <alert type="danger" ng-show="error" class="text-center text-danger">
+         <div uib-alert   class="alert alert-danger">
+            <span ng-bind="error">{{alert}}</span>
          </div>
+      </alert>
+      <div class="col-sm-12">
+         <form name="accountForm" ng-submit="account(accountForm.$valid)" novalidate>
+            <div class="form-group">
+               <label for="account-email">Email ID</label>
+               <input id="account-email" required type="email" name="email" ng-model="user.email"
+                  minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" class="form-control" placeholder="" />
+               <div class="text-danger" ng-show="!accountForm.email.$pristine || accountForm.$submitted" ng-messages="accountForm.email.$error " role="alert">
+                  <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                     Username not look like an e-mail address.
+                  </div>
+               </div>
+            </div>
+             <div class="form-group">
+               <label for="account-old-password">Old Password</label>
+               <input id="account-old-password" required type="password" name="oldpassword" ng-model="user.oldPassword"
+                  minlength="8" maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" class="form-control" placeholder=""/>
+               <div class="text-danger" ng-show="!accountForm.password.$pristine || accountForm.$submitted" ng-messages="accountForm.password.$error" role="alert">
+                  <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                     Enter the password minimum 8 alpha-numeric characters; Max 20 characters.
+                  </div>
+               </div>
+            </div>
+            <div class="form-group">
+               <label for="account-new-password">New Password</label>
+               <input id="account-new-password" required type="password" name="newpassword" ng-model="user.newPassword"
+                  minlength="8" maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" class="form-control" placeholder=""/>
+               <div class="text-danger" ng-show="!accountForm.password.$pristine || accountForm.$submitted" ng-messages="accountForm.password.$error" role="alert">
+                  <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                     Enter the password minimum 8 alpha-numeric characters; Max 20 characters.
+                  </div>
+               </div>
+            </div>
+            <div class="form-group">
+               <label for="account-confirm-new-password">Confirm New Password</label>
+               <input id="account-confirm-new-password" required type="password" name="confirmnewpassword" ng-model="user.confirmNewPassword"
+                  minlength="8" maxlength="20" class="form-control" placeholder="" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" valid-password-c />
+               <div class="text-danger" ng-show="!accountForm.confirmPassword.$pristine || accountForm.$submitted" ng-messages="accountForm.confirmPassword.$error || accountForm.confirmPassword.$error.passwordVerify" role="alert">
+                  <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                     Passwords do not match.
+                  </div>
+               </div>
+            </div>
+            <button class="btn btn-success btn-block btn-lg mb15 btn-account" type="submit"> <span>Save Changes</span> </button>
+         </form>
       </div>
    </div>
 </div>

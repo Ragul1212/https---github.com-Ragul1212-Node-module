@@ -21,7 +21,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       url: '/mainpage',
       templateUrl: 'modules/user/client/views/mainpage.client.view.html'
     })
-    .state('account', {
+    .state('mainpage.account', {
       url: '/account',
       templateUrl: 'modules/user/client/views/account.client.view.html'
     })

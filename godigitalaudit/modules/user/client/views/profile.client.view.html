@@ -1,0 +1,68 @@
+			<header>				
+				<img class="logoDb" src="../images/GO_Digital_Logo.png"/>
+				
+				<div class="pull-right logoutLink">
+					<a class="btn-link" href="#/">Logout</a>
+				</div>
+			</header>
+			<div class="wholeContainer">
+			<section class="leftSide">
+				<p class="welcome">Welcome xxxxx!</p>
+				<nav class="menuNav">
+					<ul class="menu">
+						<li class=""><a href="main.html#/dashboard" class="">Dashboard</a></li>
+						<li class=""><a href="main.html#/account" class="active">Account</a></li>
+						<li class=""><a href="#" class="">Client Information</a>
+							<ul class="menuInner">
+								<li><a href="main.html#/DAConInfo" class="">Contact Information</a></li>
+								<li><a href="main.html#/DABusInfo" class="">Business Information</a></li>
+							</ul>
+						</li>
+						<li class=""><a href="main.html#/DAAuditSelection" class="">Audit Selections</a></li>
+					</ul>
+				</nav>
+			</section>
+			<section class="rightSide">
+				<h1 class="conInfoTitle">Account Information</h1>
+				<div class="conInfo">
+					<form name="conInfo" method="post">
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label for="userName" class="control-label">Username/Email Address</label>
+							</div>
+							<div class="col-md-6">
+								<input type="text" class="form-control" id="userName" ng-model="userName" readonly/>
+							</div>						
+						</div>						
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label for="password" class="control-label">Password</label>
+							</div>
+							<div class="col-md-6">
+								<input type="text" class="form-control" id="password" ng-model="password" readonly/>
+							</div>						
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label for="newPwd" class="control-label">New Password</label>
+							</div>
+							<div class="col-md-6">
+								<input type="text" class="form-control" id="newPwd" ng-model="newPwd"/>
+							</div>						
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label for="cNewPwd" class="control-label">Confirm New Password</label>
+							</div>
+							<div class="col-md-6">
+								<input type="text" class="form-control" id="cNewPwd" ng-model="cNewPwd"/>
+							</div>						
+						</div>
+						<div class="newBtn">
+							<a class="btn btn-primary" href="#">Change Password</a>
+						</div>
+					</form>
+				</div>
+			</section>
+			<div class="clearFix"></div>
+		</div>

@@ -1,0 +1,45 @@
+<div class="container">
+   <div class="register-form-wrapper">
+      <div class="register_form row" ng-controller="SignUpController">
+         <alert type="danger" ng-show="error" class="text-center text-danger">
+            <div uib-alert   class="alert alert-danger">
+               <span ng-bind="error">{{alert}}</span>
+            </div>
+         </alert>
+         <div class="form-container col-sm-6  col-sm-offset-3">
+            <div class="alignCenter brand"><img src="../modules/core/client/img/logo/brand.png"/></div>
+            <div class="text-center reg-title">Register your account.</div>
+            <form name="registerForm" ng-submit="signup(registerForm.$valid)" novalidate>
+               <div class="form-group">
+                  <input required type="email" name="email" ng-model="user.email"
+                     minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" class="form-control" placeholder="Username" />
+                  <div class="text-danger" ng-show="!registerForm.email.$pristine || registerForm.$submitted" ng-messages="registerForm.email.$error " role="alert">
+                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                        Username not look like an e-mail address.
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <input required type="password" name="password" ng-model="user.password"
+                     minlength="8" maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" class="form-control" placeholder="Password"/>
+                  <div class="text-danger" ng-show="!registerForm.password.$pristine || registerForm.$submitted" ng-messages="registerForm.password.$error" role="alert">
+                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                        Enter the password minimum 8 alpha-numeric characters; Max 20 characters.
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <input required type="password" name="confirmPassword" ng-model="user.confirmPassword"
+                     minlength="8" maxlength="20" class="form-control" placeholder="Confirm Password" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" valid-password-c />
+                  <div class="text-danger" ng-show="!registerForm.confirmPassword.$pristine || registerForm.$submitted" ng-messages="registerForm.confirmPassword.$error || registerForm.confirmPassword.$error.passwordVerify" role="alert">
+                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                        Passwords do not match.
+                     </div>
+                  </div>
+               </div>
+               <button class="btn btn-success btn-block btn-lg mb15" type="submit"> <span>Register</span> </button>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
